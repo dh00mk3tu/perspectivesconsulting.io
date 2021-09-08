@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:100i,400');
+
+$font-color: #CCC;
+$background: #090909;
+$whitespace: 10px;
+$wall-rotation: 45deg;
+
+@media(min-width: 0px) {
+  body {
+    perspective: 250px;
+  }
+}
+
+@media(min-width: 700px) {
+  body {
+    perspective: 500px;
+  }
+}
+
+@media(min-width: 1200px) {
+  body {
+    perspective: 1000px;
+  }
+}
+
+@media(min-width: 1600px) {
+  body {
+    perspective: 2000px;
+  }
+}
+
+body {
+  background: $background;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+.header {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  right: 0;
+  top: 0;
+  color: $font-color;
+  padding: 2em;
+  font-family: 'Raleway';
+  z-index: 5;
+  font-size: 20px;
+  letter-spacing: 0.25em;
+  text-align: center;
+  
+  h1 {
+    font-weight: 400;
+    font-size: 1em;
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+  }
+  
+  span {
+    padding: 0.25em;
+    font-size: 0.75em;
+    font-style: italic;
+    text-transform: lowercase;
+  }
+}
+
+.social {
+  display: flex;
+  margin-top: 0.5em;
+  
+  a {
+    position: relative;
+    width: 1.5em;
+    height: 1.5em;
+    margin: 0px 0.75em;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+#wall {
+  position: relative;
+  transform-origin: left center;
+  transform: rotateY($wall-rotation);
+  width: 100%;
+  height: 100%;
+  animation: 10s linear move;
+  
+  .row {
+    position: relative;
+    display: flex;
+    height: 250px;
+    margin-bottom: $whitespace;
+
+    img {
+      height: 100%;
+      margin: $whitespace / 2;
+    }
+    
+    .frame {
+      position: relative;
+      height: 100%;
+      
+      .reflection {
+        position: absolute;
+        height: 100%;
+        transform: rotateX(180deg) translateY(-$whitespace);
+        opacity: 0.25;
+      }
+      
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient($background 75%, transparent);
+        transform-origin: bottom center;
+        transform: rotateX(180deg) translateY(-$whitespace * 2);
+      }
+    }
+  }
+}
