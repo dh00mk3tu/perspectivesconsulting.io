@@ -7,7 +7,7 @@ const IMAGES = [];
 for (let i = 0; i < NUM_IMAGES; i++) {
   let width = (Math.floor(Math.random() * 3) + 2) * 100;
   let height = (Math.floor(Math.random() * 3) + 2) * 100;
-  IMAGES.push(`https://source.unsplash.com/user/unworld21/${width}/${height}`);
+  IMAGES.push(https://source.unsplash.com/user/unworld21/${width}/${height}`);
 }
 
 let rows = [];
